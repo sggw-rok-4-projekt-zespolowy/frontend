@@ -93,21 +93,23 @@ export default function QuickGameEntry() {
                     )}
                   />
               </form>
-              <Link
-                to="/login"
-                aria-disabled={isLoading}
-                tabIndex={isLoading ? -1 : 0}
-              >
-                Back to Login
-              </Link>
-              <button
-                type="submit"
-                form="form-rhf-input"
-                className="btn-gradient flex-1"
-                disabled={isLoading}
-              >
-                {isLoading ? 'CONNECTING...' : 'PLAY!'}
-              </button>
+              <div className="flex flex-row justify-between">
+                <Link
+                  to="/login"
+                  aria-disabled={isLoading}
+                  tabIndex={isLoading ? -1 : 0}
+                >
+                  Back to Login
+                </Link>
+                <button
+                  type="submit"
+                  form="form-rhf-input"
+                  className="flex-1"
+                  disabled={isLoading}
+                >
+                  {isLoading ? 'CONNECTING...' : 'PLAY!'}
+                </button>
+              </div>
           </div>
         </div>
       </div>

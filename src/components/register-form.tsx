@@ -63,9 +63,6 @@ export function RegisterForm({
     >
         <div className="flex flex-col items-center gap-1 text-center">
           <h1 className="text-2xl font-bold">Create your account</h1>
-          <p className="text-muted-foreground text-sm text-balance">
-            Join the rhythm
-          </p>
         </div>
 
         {error && (
@@ -78,7 +75,7 @@ export function RegisterForm({
           name="username"
           control={form.control}
           render={({ field, fieldState }) => (
-            <div>
+            <div className="flex flex-col">
               <label htmlFor="username">Username</label>
               <input
                 {...field}
@@ -100,7 +97,7 @@ export function RegisterForm({
           name="email"
           control={form.control}
           render={({ field, fieldState }) => (
-            <div>
+            <div className="flex flex-col">
               <label htmlFor="email">Email</label>
               <input
                 {...field}
@@ -123,7 +120,7 @@ export function RegisterForm({
           name="password"
           control={form.control}
           render={({ field, fieldState }) => (
-            <div>
+            <div className="flex flex-col">
               <label htmlFor="password">Password</label>
               <input
                 {...field}
@@ -146,7 +143,7 @@ export function RegisterForm({
           name="confirmPassword"
           control={form.control}
           render={({ field, fieldState }) => (
-            <div>
+            <div className="flex flex-col">
               <label htmlFor="confirmPassword">
                 Confirm Password
               </label>

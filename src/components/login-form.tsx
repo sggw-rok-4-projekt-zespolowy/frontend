@@ -15,9 +15,6 @@ export function LoginForm({
     <form className='flex flex-col gap-6' {...props}>
         <div className="flex flex-col items-center gap-1 text-center">
           <h1 className="text-2xl font-bold">Login to your account</h1>
-          <p className="text-muted-foreground text-sm text-balance">
-            Feel the beat and sort it out!
-          </p>
         </div>
 
         {error && (
