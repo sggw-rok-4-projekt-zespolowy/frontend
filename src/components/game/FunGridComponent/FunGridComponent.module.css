@@ -1,0 +1,23 @@
+.linevertical {
+    height: 300px;
+    width: 3px;
+    background-color: yellow;
+}
+
+.lineholder {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+}
+
+.floor {
+    background-color: blue;
+    transform: rotate3d(1,0,0,60deg) translate3d(0, 0, 50px);
+}
+
+.perspective {
+    background-color: cyan;
+    transform: perspective(1px);
+}

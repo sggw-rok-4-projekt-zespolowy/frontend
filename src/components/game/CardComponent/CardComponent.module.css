@@ -1,0 +1,45 @@
+.CardComponent {
+  width: 120px;
+  height: 180px;
+
+  border-radius: 12px;
+  background: #03094f;
+  border: 2px solid #fb2570;
+
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  user-select: none;
+
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+}
+.CardComponent:hover {
+  transform: translateY(-3px);
+}
+
+.content {
+  text-align: center;
+}
+.id {
+  color: white;
+}
+.album img {
+  width: 90px;
+  height: 90px;
+}
+.title {
+  font-size: 12px;
+  display: block;
+  color: #ffd54c;
+  font-weight: bold;
+}
+.year {
+  font-size: 28px;
+  font-weight: bold;
+  color: white;
+}
