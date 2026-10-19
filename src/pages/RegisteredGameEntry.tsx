@@ -52,26 +52,26 @@ export default function RegisteredGameEntry() {
           >
             <div className="flex w-full flex-row items-center gap-10">
               <label
-                className="text-game-ui-primary text-2xl"
+                className="text-primary text-2xl"
                 htmlFor={secondsSelectId}
               >
                 seconds per round:
               </label>
               <select
-                className="bg-game-ui-bg-mid hover:bg-game-ui-bg-highlight border-game-ui-accent flex-1 appearance-none rounded-full border-2 p-3 text-center text-2xl font-bold transition-all duration-300"
+                className="bg-surface-mid hover:bg-surface-highlight border-accent flex-1 appearance-none rounded-full border-2 p-3 text-center text-2xl font-bold transition-all duration-300"
                 id={secondsSelectId}
                 name="seconds_per_round"
               >
-                <option className="bg-game-ui-bg-mid" value="any">
+                <option className="bg-surface-mid" value="any">
                   ANY
                 </option>
-                <option className="bg-game-ui-bg-mid" value={15}>
+                <option className="bg-surface-mid" value={15}>
                   15
                 </option>
-                <option className="bg-game-ui-bg-mid" value={30}>
+                <option className="bg-surface-mid" value={30}>
                   30
                 </option>
-                <option className="bg-game-ui-bg-mid" value={35}>
+                <option className="bg-surface-mid" value={35}>
                   35
                 </option>
               </select>
@@ -79,26 +79,26 @@ export default function RegisteredGameEntry() {
 
             <div className="flex w-full flex-row items-center gap-10">
               <label
-                className="text-game-ui-primary text-2xl"
+                className="text-primary text-2xl"
                 htmlFor={roundsSelectId}
               >
                 number of rounds:
               </label>
               <select
-                className="bg-game-ui-bg-mid hover:bg-game-ui-bg-highlight border-game-ui-accent flex-1 appearance-none rounded-full border-2 p-3 text-center text-2xl font-bold transition-all duration-300"
+                className="bg-surface-mid hover:bg-surface-highlight border-accent flex-1 appearance-none rounded-full border-2 p-3 text-center text-2xl font-bold transition-all duration-300"
                 id={roundsSelectId}
                 name="rounds"
               >
-                <option className="bg-game-ui-bg-mid" value="any">
+                <option className="bg-surface-mid" value="any">
                   ANY
                 </option>
-                <option className="bg-game-ui-bg-mid" value={3}>
+                <option className="bg-surface-mid" value={3}>
                   3
                 </option>
-                <option className="bg-game-ui-bg-mid" value={5}>
+                <option className="bg-surface-mid" value={5}>
                   5
                 </option>
-                <option className="bg-game-ui-bg-mid" value={7}>
+                <option className="bg-surface-mid" value={7}>
                   7
                 </option>
               </select>

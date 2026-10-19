@@ -25,11 +25,11 @@ export default function SongCardComponent({
             ) : null}
           </div>
 
-          <div className="font-game-ui text-game-ui-primary px-3 pt-3 text-center text-3xl leading-none">
+          <div className="font-impact text-primary px-3 pt-3 text-center text-3xl leading-none">
             {year ?? '----'}
           </div>
 
-          <div className="text-game-ui-secondary px-3 pt-2 pb-3 text-center text-sm leading-tight font-bold break-words">
+          <div className="text-secondary px-3 pt-2 pb-3 text-center text-sm leading-tight font-bold break-words">
             {title ?? 'Unknown title'}
           </div>
         </div>

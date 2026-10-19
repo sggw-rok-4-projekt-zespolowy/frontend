@@ -14,7 +14,7 @@ const RejectCardComponent = ({ position }: RejectCardProps) => {
       <div className={styles.animation}>
         <CardComponent>
           <div className="flex h-full w-full flex-col items-center justify-center">
-            <div className="text-game-ui-accent text-9xl font-extrabold">X</div>
+            <div className="text-accent text-9xl font-extrabold">X</div>
           </div>
         </CardComponent>
       </div>

@@ -14,7 +14,7 @@ export function LoginForm({
   return (
     <form className='flex flex-col gap-6' {...props}>
         <div className="flex flex-col items-center gap-1 text-center">
-          <h1 className="text-2xl font-bold">Login to your account</h1>
+          <h1 className="font-impact text-2xl">Login to your account</h1>
         </div>
 
         {error && (

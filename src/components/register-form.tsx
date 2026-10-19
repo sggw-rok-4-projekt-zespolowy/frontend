@@ -62,7 +62,7 @@ export function RegisterForm({
       onSubmit={form.handleSubmit(onSubmit)}
     >
         <div className="flex flex-col items-center gap-1 text-center">
-          <h1 className="text-2xl font-bold">Create your account</h1>
+          <h1 className="font-impact text-2xl">Create your account</h1>
         </div>
 
         {error && (

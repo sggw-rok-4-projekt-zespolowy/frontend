@@ -60,7 +60,7 @@ const AudioComponent = ({ audioUrl }: AudioProps) => {
               toggleAudio();
             }}
           >
-            <div className="border-l-game-ui-secondary h-0 w-0 cursor-pointer border-y-[40px] border-l-[70px] border-y-transparent" />
+            <div className="border-l-secondary h-0 w-0 cursor-pointer border-y-[40px] border-l-[70px] border-y-transparent" />
           </button>
         )}
       </div>

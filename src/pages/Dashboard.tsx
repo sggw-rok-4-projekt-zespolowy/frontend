@@ -14,11 +14,11 @@ export default function Dashboard() {
         <PopupComponent title="Dashboard">
           <div className="flex flex-col items-center gap-5 p-15 pt-7 pb-10">
             <div className="w-full">
-              <p className="text-game-ui-primary text-xl">Welcome back,</p>
-              <p className="text-game-ui-secondary text-2xl">
+              <p className="text-primary text-xl">Welcome back,</p>
+              <p className="text-secondary text-2xl">
                 {user?.username ?? 'User'}
               </p>
-              <p className="text-game-ui-primary text-xl">{user?.email}</p>
+              <p className="text-primary text-xl">{user?.email}</p>
             </div>
             <div className="w-4/5 pt-5">
               <CoolButtonComponent

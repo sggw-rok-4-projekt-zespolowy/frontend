@@ -12,7 +12,7 @@ const WaitingCardComponent = ({ position }: WaitingCardProps) => {
     >
       <CardComponent>
         <div className="flex h-full w-full flex-col items-center justify-center">
-          <div className="text-game-ui-secondary h-30 w-30 animate-spin">C</div>
+          <div className="text-secondary h-30 w-30 animate-spin">C</div>
         </div>
       </CardComponent>
     </div>

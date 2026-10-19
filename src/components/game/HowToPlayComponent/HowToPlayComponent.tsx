@@ -32,7 +32,7 @@ export default function HowToPlayComponent({ onClick }: HowToPlayProps) {
         </div>
         <div className="p-[10px] text-center">
           <button
-            className="bg-game-ui-bg-mid hover:bg-game-ui-bg-highlight border-game-ui-accent text-game-ui-secondary w-[200px] rounded-full border-2 p-3 text-xl font-bold transition-all duration-300"
+            className="bg-surface-mid hover:bg-surface-highlight border-accent text-secondary w-[200px] rounded-full border-2 p-3 text-xl font-bold transition-all duration-300"
             onClick={onClick}
           >
             Play!

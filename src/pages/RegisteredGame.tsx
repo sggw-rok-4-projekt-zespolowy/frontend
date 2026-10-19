@@ -156,7 +156,7 @@ export default function Game() {
             }}
           >
             <div className="absolute top-1/2 w-full -translate-y-1/2">
-              <div className="border-game-ui-secondary/30 absolute top-1/2 right-0 left-0 z-0 -translate-y-1/2 border-t-2 border-dashed" />
+              <div className="border-secondary/30 absolute top-1/2 right-0 left-0 z-0 -translate-y-1/2 border-t-2 border-dashed" />
 
               <CardRowComponent
                 matchedTracks={myData?.matchedTracks ?? []}
@@ -185,7 +185,7 @@ export default function Game() {
       )}
       {isFinished && (
         <button
-          className="bg-game-ui-bg hover:bg-game-ui-bg-mid text-game-ui-primary absolute bottom-[100px] w-full sm:w-auto"
+          className="bg-surface hover:bg-surface-mid text-primary absolute bottom-[100px] w-full sm:w-auto"
           onClick={handlePlayAgain}
         >
           Play Again!

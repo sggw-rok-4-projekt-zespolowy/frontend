@@ -23,7 +23,7 @@ export function ProtectedAuthRoute({ children }: ProtectedAuthRouteProps) {
   if (isLoading || !isInitialized) {
     return (
       <div className="flex min-h-[80vh] items-center justify-center">
-        <div className="text-muted-foreground">Loading...</div>
+        <div className="text-muted">Loading...</div>
       </div>
     );
   }

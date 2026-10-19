@@ -14,8 +14,8 @@
   --gradient-angle: 0deg;
   background: linear-gradient(
     var(--gradient-angle) in hsl shorter hue,
-    var(--game-ui-secondary),
-    var(--game-ui-accent)
+    var(--secondary),
+    var(--accent)
   );
   animation: rotate-gradient 2s linear infinite;
 }
