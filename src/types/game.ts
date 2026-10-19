@@ -1,10 +1,3 @@
-import type { ButtonHTMLAttributes } from "react";
-
-export interface CoolButtonComponentProps 
-  extends ButtonHTMLAttributes<HTMLButtonElement> {
-  children: React.ReactNode | null;
-}
-
 export interface CardComponentProps {
   children: React.ReactNode | null;
 }
@@ -57,16 +50,6 @@ export interface GameSessionMetadata {
 export interface ScoreProps {
   playerScore: number;
   opponentScore?: number;
-}
-
-export interface PopupComponentProps {
-  title?: string;
-  children: React.ReactNode | null;
-}
-
-export interface GlowingPopupComponentProps {
-  title?: string;
-  children: React.ReactNode | null;
 }
 
 export interface HowToPlayProps {

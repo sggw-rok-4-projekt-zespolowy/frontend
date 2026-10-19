@@ -133,7 +133,7 @@ export default function Game() {
               hoverIndex={null}
               setHoverIndex={function () {
                 return;
-              }} // null, but for functions
+              }}
             />
           </div>
 

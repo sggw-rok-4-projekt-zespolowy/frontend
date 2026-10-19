@@ -1,9 +1,9 @@
 import { useId, useState } from 'react';
 import { useNavigate } from 'react-router';
 
-import CoolButtonComponent from '@/components/game/CoolButtonComponent/CoolButtonComponent';
-import GlowingPopupComponent from '@/components/game/GlowingPopupComponent/GlowingPopupComponent';
-import PopupComponent from '@/components/game/PopupComponent/PopupComponent';
+import CoolButton from '@/components/ui/CoolButton/CoolButton';
+import PopupGlowing from '@/components/ui/PopupGlowing/PopupGlowing';
+import Popup from '@/components/ui/Popup/Popup';
 import { useAuth } from '@/hooks/use-auth';
 import api from '@/services/api';
 
@@ -45,7 +45,7 @@ export default function RegisteredGameEntry() {
   return (
     <div className="flex h-screen w-screen items-center justify-center">
       <div className="h-3/5 w-1/2 min-w-[600px]">
-        <PopupComponent title="CHOOSE YOUR SETTINGS">
+        <Popup title="CHOOSE YOUR SETTINGS">
           <form
             className="flex w-full flex-col items-center gap-7 p-15 pt-10 pb-10"
             action={onSubmit}
@@ -104,17 +104,17 @@ export default function RegisteredGameEntry() {
               </select>
             </div>
             <div className="w-3/5 pt-7">
-              <CoolButtonComponent type="submit">PLAY</CoolButtonComponent>
+              <CoolButton type="submit">PLAY</CoolButton>
             </div>
           </form>
-        </PopupComponent>
+        </Popup>
       </div>
       {message && (
         <div className="bg-background/30 absolute z-50 h-screen w-screen backdrop-blur-[2px]">
           <div className="absolute top-1/2 left-1/2 w-[500px] -translate-x-1/2 -translate-y-1/2 transform">
-            <GlowingPopupComponent>
+            <PopupGlowing>
               <div className="p-10 pr-15 pl-15 text-lg">{message}</div>
-            </GlowingPopupComponent>
+            </PopupGlowing>
           </div>
         </div>
       )}

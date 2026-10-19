@@ -1,10 +1,10 @@
-import PopupComponent from '../PopupComponent/PopupComponent';
+import Popup from '../../ui/Popup/Popup';
 
 import type { HowToPlayProps } from '@/types/game';
 
 export default function HowToPlayComponent({ onClick }: HowToPlayProps) {
   return (
-    <PopupComponent title="How to play?">
+    <Popup title="How to play?">
       <div className="flex w-full flex-col">
         <div className="p-[20px] pl-[35px]">
           <ul className="list-outside list-disc space-y-3">
@@ -39,6 +39,6 @@ export default function HowToPlayComponent({ onClick }: HowToPlayProps) {
           </button>
         </div>
       </div>
-    </PopupComponent>
+    </Popup>
   );
 }

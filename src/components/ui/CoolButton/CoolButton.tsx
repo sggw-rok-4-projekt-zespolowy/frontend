@@ -1,7 +1,11 @@
-import type { CoolButtonComponentProps } from '@/types/game';
-import styles from './CoolButtonComponent.module.css';
+import styles from './CoolButton.module.css';
 
-export default function CoolButtonComponent({ children, ...props }: CoolButtonComponentProps) {
+interface CoolButtonProps 
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  children: React.ReactNode | null;
+}
+
+export default function CoolButton({ children, ...props }: CoolButtonProps) {
   return (
     <div className="group relative h-full w-full">
       <div

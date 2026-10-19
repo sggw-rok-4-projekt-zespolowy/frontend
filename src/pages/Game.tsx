@@ -52,8 +52,6 @@ export default function Game() {
     return () => disconnect();
   }, [gameId, playerId, connect, disconnect]);
 
-  // none of these should cause cascading renders, I think this should be fine
-  /* eslint-disable react-hooks/set-state-in-effect */
   useEffect(() => {
     if (isFinished) {
       setDrawnCard(false);

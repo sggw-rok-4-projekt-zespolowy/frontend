@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router';
 
-import AuthBg from '@/assets/auth-bg.jpg';
 import {
   RegisterForm,
   type RegisterFormData,

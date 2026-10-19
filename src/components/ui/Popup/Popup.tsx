@@ -1,9 +1,12 @@
-import type { PopupComponentProps } from '@/types/game';
+interface PopupProps {
+  title?: string;
+  children: React.ReactNode | null;
+}
 
-export default function PopupComponent({
+export default function Popup({
   title,
   children,
-}: PopupComponentProps) {
+}: PopupProps) {
   return (
     <div className="from-surface to-surface-mid border-accent w-full overflow-hidden rounded-[2rem] border-3 bg-linear-to-t">
       {title && (
