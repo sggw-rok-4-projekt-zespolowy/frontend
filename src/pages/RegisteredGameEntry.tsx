@@ -15,7 +15,6 @@ export default function RegisteredGameEntry() {
   const roundsSelectId = useId();
 
   async function onSubmit(formData: FormData) {
-    try {
       const choices = {
         variant: 'DUEL',
         ...(formData.get('seconds_per_round') &&
@@ -29,7 +28,7 @@ export default function RegisteredGameEntry() {
       const response = await api.post('/game/registered-start', choices);
       if (response.status === 202) {
         setMessage('Waiting for another player. Please wait...');
-        setTimeout(onSubmit, 5000);
+        setTimeout(function() {onSubmit(formData)}, 5000);
       } else if (response.status === 200) {
         const gameId = response.data.session_id;
 
@@ -37,9 +36,6 @@ export default function RegisteredGameEntry() {
           `/registered-game/${gameId}/${user!.id}?access_token=${accessToken}`,
         );
       }
-    } catch {
-      setMessage('Something went wrong :( Try again later');
-    }
   }
 
   return (

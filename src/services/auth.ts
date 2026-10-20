@@ -14,7 +14,10 @@ export const authService = {
    * Backend sets refresh token as HTTP-only cookie
    */
   async login(credentials: LoginRequest): Promise<AuthResponse> {
-    const response = await api.post<AuthResponse>('/auth/login', credentials);
+	let bodyFormData = new FormData();
+	bodyFormData.append('username', credentials.email); // A bit confusing, but as per Oauth2, 'username' name must be used, even if we're passing email.
+	bodyFormData.append('password', credentials.password);
+    const response = await api.post<AuthResponse>('/auth/login', bodyFormData, { headers: {'Content-Type': 'x-www-form-urlencoded'} });
     const { access_token, user } = response.data;
 
     // Store access token in memory (Zustand)
