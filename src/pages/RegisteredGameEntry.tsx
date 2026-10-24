@@ -1,5 +1,5 @@
 import { useId, useState } from 'react';
-import { useNavigate } from 'react-router';
+import { useNavigate, useLocation } from 'react-router';
 
 import CoolButton from '@/components/ui/CoolButton/CoolButton';
 import PopupGlowing from '@/components/ui/PopupGlowing/PopupGlowing';
@@ -9,14 +9,17 @@ import api from '@/services/api';
 
 export default function RegisteredGameEntry() {
   const navigate = useNavigate();
+  const location = useLocation();
   const [message, setMessage] = useState('');
   const { user, accessToken } = useAuth();
   const secondsSelectId = useId();
   const roundsSelectId = useId();
 
+  const variant = location.state?.variant;
+
   async function onSubmit(formData: FormData) {
       const choices = {
-        variant: 'DUEL',
+        variant: variant,
         ...(formData.get('seconds_per_round') &&
         formData.get('seconds_per_round') !== 'any'
           ? { seconds_per_round: formData.get('seconds_per_round') }
