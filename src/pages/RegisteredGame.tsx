@@ -10,8 +10,6 @@ import ScoreComponent from '@/components/game/ScoreComponent/ScoreComponent';
 import WaitingCardComponent from '@/components/game/WaitingCardComponent/WaitingCardComponent';
 import { useGameStore } from '@/stores/game-store';
 
-import type { TrackPrivate } from '@/types/game';
-
 function getClientX(event: Event): number {
   if (event instanceof MouseEvent) return event.clientX;
   if (event instanceof PointerEvent) return event.clientX;
@@ -46,6 +44,7 @@ export default function Game() {
     submitAnswer,
     revealedTracksMap,
     matchedTracks,
+    scores,
   } = useGameStore();
 
   useEffect(() => {
@@ -91,9 +90,6 @@ export default function Game() {
 
   const myData = playerId ? playersData[playerId] : undefined;
 
-  const cardOrder =
-    myData?.matchedTracks.map((track: TrackPrivate) => track.track_id) ?? [];
-
   const handleDropAnswer = (index = 0) => {
     if (!playerId || drawnCard === false) return;
     console.log(opponentPlayerId);
@@ -110,11 +106,9 @@ export default function Game() {
       <div className="w-full">
         <div className="absolute top-[30px] left-1/2 z-10 -translate-x-1/2">
           <ScoreComponent
-            playerScore={cardOrder.length}
+            playerScore={playerId ? (scores[playerId] ?? 0) : 0}
             opponentScore={
-              matchedTracks[opponentPlayerId!]
-                ? matchedTracks[opponentPlayerId!].length
-                : 0
+              opponentPlayerId ? (scores[opponentPlayerId] ?? 0) : 0
             }
           />
         </div>
@@ -158,6 +152,7 @@ export default function Game() {
               dragX={dragX}
               hoverIndex={hoverIndex}
               setHoverIndex={setHoverIndex}
+              animateDiscards
             />
           </div>
 
@@ -177,12 +172,20 @@ export default function Game() {
         </DndContext>
       </div>
       {isFinished && (
-        <button
-          className="bg-surface hover:bg-surface-mid text-primary absolute bottom-[100px] w-full sm:w-auto"
-          onClick={handlePlayAgain}
-        >
-          Play Again!
-        </button>
+        <div className="absolute bottom-[100px] flex w-full flex-col items-center gap-3 sm:w-auto">
+          <button
+            className="bg-surface hover:bg-surface-mid text-primary w-full sm:w-auto"
+            onClick={handlePlayAgain}
+          >
+            Play Again!
+          </button>
+          <button
+            className="bg-surface hover:bg-surface-mid text-primary w-full sm:w-auto"
+            onClick={() => void navigate('/')}
+          >
+            Back
+          </button>
+        </div>
       )}
     </div>
   );

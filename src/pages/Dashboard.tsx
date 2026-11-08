@@ -36,9 +36,13 @@ export default function Dashboard() {
             MULTIPLAYER
           </span>
         </CoolButton>
-        <CoolButton>
+        <CoolButton
+          onClick={function () {
+            void navigate('/profile');
+          }}
+        >
           <span className="text-primary">
-            SETTINGS
+            PROFIL
           </span>
         </CoolButton>
         <CoolButton onClick={logout}>

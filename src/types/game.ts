@@ -6,6 +6,7 @@ export interface SongCardProps {
   albumImage?: string;
   year?: string;
   title?: string;
+  overlay?: React.ReactNode;
 }
 
 export interface DrawnCardProps {
@@ -69,6 +70,7 @@ export interface TrackPublic {
   preview_url: string;
   image_url: string | null;
   title: string;
+  owner_id?: number | null;
 }
 
 export interface ServerMessage {
@@ -77,6 +79,8 @@ export interface ServerMessage {
   current_song_audio_url: string | null;
   tracks_data: TrackPublic[] | null;
   matched_tracks: Record<string, TrackPrivate[]>;
+  // Songs guessed correctly per player; the board keeps only the last few cards
+  scores: Record<string, number>;
   game_session_metadata: GameSessionMetadata;
 }
 

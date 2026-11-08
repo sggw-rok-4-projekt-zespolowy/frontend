@@ -6,6 +6,7 @@ export default function SongCardComponent({
   albumImage,
   year,
   title,
+  overlay,
 }: SongCardProps) {
   return (
     <div
@@ -33,6 +34,11 @@ export default function SongCardComponent({
             {title ?? 'Unknown title'}
           </div>
         </div>
+        {overlay ? (
+          <div className="absolute bottom-2 left-1/2 -translate-x-1/2">
+            {overlay}
+          </div>
+        ) : null}
       </CardComponent>
     </div>
   );

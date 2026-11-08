@@ -10,8 +10,6 @@ import ScoreComponent from '@/components/game/ScoreComponent/ScoreComponent';
 import WaitingCardComponent from '@/components/game/WaitingCardComponent/WaitingCardComponent';
 import { useGameStore } from '@/stores/game-store';
 
-import type { TrackPrivate } from '@/types/game';
-
 function getClientX(event: Event): number {
   if (event instanceof MouseEvent) return event.clientX;
   if (event instanceof PointerEvent) return event.clientX;
@@ -44,6 +42,7 @@ export default function Game() {
     isFinished,
     submitAnswer,
     revealedTracksMap,
+    scores,
   } = useGameStore();
 
   useEffect(() => {
@@ -84,9 +83,6 @@ export default function Game() {
 
   const myData = playerId ? playersData[playerId] : undefined;
 
-  const cardOrder =
-    myData?.matchedTracks.map((track: TrackPrivate) => track.track_id) ?? [];
-
   const handleDropAnswer = (index = 0) => {
     if (!playerId || drawnCard === false) return;
     setDrawnCard(false);
@@ -101,7 +97,7 @@ export default function Game() {
     <div className="flex h-full w-full flex-col items-center gap-8 py-8">
       <div className="w-full">
         <div className="absolute top-[30px] left-1/2 z-10 -translate-x-1/2">
-          <ScoreComponent playerScore={cardOrder.length} />
+          <ScoreComponent playerScore={playerId ? (scores[playerId] ?? 0) : 0} />
         </div>
 
         <DndContext
@@ -131,6 +127,7 @@ export default function Game() {
               dragX={dragX}
               hoverIndex={hoverIndex}
               setHoverIndex={setHoverIndex}
+              animateDiscards
             />
           </div>
 

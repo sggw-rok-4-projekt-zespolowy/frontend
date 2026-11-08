@@ -1,4 +1,4 @@
-import { useId, useState } from 'react';
+import { useEffect, useId, useRef, useState } from 'react';
 import { useNavigate, useLocation } from 'react-router';
 
 import CoolButton from '@/components/ui/CoolButton/CoolButton';
@@ -14,6 +14,21 @@ export default function RegisteredGameEntry() {
   const { user, accessToken } = useAuth();
   const secondsSelectId = useId();
   const roundsSelectId = useId();
+  // Stops the matchmaking retries once the user leaves this page
+  const leftPageRef = useRef(false);
+  const retryTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => {
+    leftPageRef.current = false;
+    return () => {
+      leftPageRef.current = true;
+      if (retryTimeoutRef.current) clearTimeout(retryTimeoutRef.current);
+    };
+  }, []);
+
+  function goToMainMenu() {
+    void navigate('/');
+  }
 
   const variant = location.state?.variant;
 
@@ -29,9 +44,10 @@ export default function RegisteredGameEntry() {
           : {}),
       };
       const response = await api.post('/game/registered-start', choices);
+      if (leftPageRef.current) return;
       if (response.status === 202) {
         setMessage('Waiting for another player. Please wait...');
-        setTimeout(function() {onSubmit(formData)}, 5000);
+        retryTimeoutRef.current = setTimeout(function() {onSubmit(formData)}, 5000);
       } else if (response.status === 200) {
         const gameId = response.data.session_id;
 
@@ -100,10 +116,18 @@ export default function RegisteredGameEntry() {
                 <option className="bg-surface-mid" value={7}>
                   7
                 </option>
+                <option className="bg-surface-mid" value={0}>
+                  ALL
+                </option>
               </select>
             </div>
             <div className="w-3/5 pt-7">
               <CoolButton type="submit">PLAY</CoolButton>
+            </div>
+            <div className="w-3/5">
+              <CoolButton type="button" onClick={goToMainMenu}>
+                BACK
+              </CoolButton>
             </div>
           </form>
         </Popup>
@@ -112,7 +136,14 @@ export default function RegisteredGameEntry() {
         <div className="bg-background/30 absolute z-50 h-screen w-screen backdrop-blur-[2px]">
           <div className="absolute top-1/2 left-1/2 w-[500px] -translate-x-1/2 -translate-y-1/2 transform">
             <PopupGlowing>
-              <div className="p-10 pr-15 pl-15 text-lg">{message}</div>
+              <div className="flex flex-col items-center gap-6 p-10 pr-15 pl-15 text-lg">
+                {message}
+                <div className="w-4/5">
+                  <CoolButton type="button" onClick={goToMainMenu}>
+                    BACK
+                  </CoolButton>
+                </div>
+              </div>
             </PopupGlowing>
           </div>
         </div>

@@ -23,6 +23,7 @@ interface GameState {
   errorMessage: string | null;
   revealedTracksMap: Record<number, TrackPublic>;
   matchedTracks: Record<string, TrackPrivate[]>;
+  scores: Record<string, number>;
   gameSessionMetadata: GameSessionMetadata | null;
 
   // Actions
@@ -45,6 +46,7 @@ export const useGameStore = create<GameState>((set, get) => ({
   revealed_tracks: null,
   revealedTracksMap: {},
   matchedTracks: {},
+  scores: {},
   gameSessionMetadata: null,
 
   // Actions
@@ -98,6 +100,7 @@ export const useGameStore = create<GameState>((set, get) => ({
             isFinished: message.finished || state.isFinished,
             revealedTracksMap: { ...state.revealedTracksMap, ...tracksToAdd },
             matchedTracks: message.matched_tracks || state.matchedTracks,
+            scores: message.scores || state.scores,
             gameSessionMetadata:
               message.game_session_metadata || state.gameSessionMetadata,
           };
@@ -134,6 +137,7 @@ export const useGameStore = create<GameState>((set, get) => ({
       errorMessage: null,
       revealedTracksMap: {},
       matchedTracks: {},
+      scores: {},
       gameSessionMetadata: null,
     });
   },

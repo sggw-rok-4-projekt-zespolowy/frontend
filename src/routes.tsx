@@ -7,6 +7,7 @@ import Game from '@/pages/Game.tsx';
 import RegisteredGame from '@/pages/RegisteredGame.tsx';
 import RegisteredGameEntry from '@/pages/RegisteredGameEntry.tsx';
 import Login from '@/pages/Login';
+import Profile from '@/pages/Profile';
 import QuickGameEntry from '@/pages/QuickGameEntry.tsx';
 import Register from '@/pages/Register';
 
@@ -21,6 +22,14 @@ const router = createBrowserRouter([
         element: (
           <ProtectedAuthRoute>
             <Dashboard />
+          </ProtectedAuthRoute>
+        ),
+      },
+      {
+        path: 'profile',
+        element: (
+          <ProtectedAuthRoute>
+            <Profile />
           </ProtectedAuthRoute>
         ),
       },
