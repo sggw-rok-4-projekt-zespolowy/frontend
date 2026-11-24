@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-		GRA_MUZYCZNA_BACKEND_HOST="https://gra-muzyczna.mysliwczykrafal.pl"
+		GRA_MUZYCZNA_BACKEND_HOST="https://gra-muzyczna-backend.mysliwczykrafal.pl"
     }
 
     stages {
